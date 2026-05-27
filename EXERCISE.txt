@@ -1,0 +1,41 @@
+EXERCISE — Unit Testing in Java (10 points, ~10 minutes)
+========================================================
+
+The class Thermostat (see src/exam/Thermostat.java) has been implemented
+successfully. It has the following constructor and methods:
+
+    public Thermostat(int initialTemp)
+    public int getTemperature()
+    public boolean isHeating()
+    public void setTemperature(int temp)
+    public void increase(int delta)
+
+Behaviour specification:
+- The constructor sets the temperature to initialTemp.
+- setTemperature(temp) sets the temperature. Valid values are 10 to 30.
+  A value outside this range throws an IllegalArgumentException with the
+  message "Temperature out of range."; the temperature stays unchanged.
+- increase(delta) increases the temperature by delta degrees by calling
+  setTemperature internally (so the same 10-30 rule applies).
+- isHeating() returns true if the current temperature is below 18, else false.
+
+TASK
+----
+Create a JUnit test class ThermostatTest. It must have a @BeforeEach method
+that creates a fresh Thermostat with an initial temperature of 20 before
+each test. Write the following test methods:
+
+a) testSetTemperature()
+   Checks that setTemperature sets a valid value correctly.
+
+b) testSetTemperatureThrowsException()
+   Checks that setTemperature throws an IllegalArgumentException when a
+   value outside 10-30 is passed.
+
+c) testIsHeating()
+   Checks that isHeating() returns true when the temperature is below 18,
+   and false when it is 18 or higher.
+
+Create the file ThermostatTest.java in the package "exam".
+
+DO NOT CHANGE the file Thermostat.java.
